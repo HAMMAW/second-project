@@ -10,6 +10,9 @@
     </head>
     <body>
         <script>
+            let playerScore = 0;
+            let computerScore = 0;
+
             function getComputerChoice() {
                 var randomNumber = Math.floor(Math.random() * 3);
                 if(randomNumber === 0) {
@@ -38,46 +41,52 @@
                 //Conditional statements deciding the winner/loser
                 if(playerSelection === "rock" && 
                    computerSelection === "paper") {
+                    computerScore += 1;
                     return loseMessage;
                 }
                 else if(playerSelection === "paper" && 
                         computerSelection === "scissor") {
+                    computerScore += 1;
                     return loseMessage;
                 }
                 else if(playerSelection === "scissor" && 
                         computerSelection === "rock") {
+                    computerScore += 1;
                     return loseMessage;
                 }
                 else if(playerSelection === computerSelection) {
                     return drawMessage;
                 }
                 else {
+                    playerScore += 1;
                     return winMessage;
                 }
             }
 
             function game() {
                 for(let i = 0; i < 5; i++) {
-                    let userInput = prompt("Enter rock, paper or scissor (correct spelling): ");
+                    let correctInput = false;
+                    let userInput;
 
-                    // while(true) {
-                    //     userInput.toLowerCase();
+                    do {
+                        userInput = prompt("Please enter rock, paper or scissor (correct spelling): ").toLowerCase();
                         
-                    //     if(userInput === "rock" || 
-                    //        userInput === "paper" ||
-                    //        userInput === "scissor") {
-                    //         continue;
-                    //     }
-                    //     else {
-                    //         break;
-                    //     }
-                    // }
+                        if(userInput === "rock" || 
+                           userInput === "paper" ||
+                           userInput === "scissor") {
+                            correctInput = true;
+                        }
+                        else {
+                            alert("Incorrect input. Please try again, dumbass");
+                        }
+                    } while(!correctInput);
                     
                     console.log(getWinner(userInput, getComputerChoice()));
                 }
             }
 
             game();
+            console.log();
         </script>
     </body>
 </html>
