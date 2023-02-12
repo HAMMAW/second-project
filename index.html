@@ -26,7 +26,7 @@
                 }
             }
 
-            function getWinner(playerSelection, computerSelection) {
+            function playRound(playerSelection, computerSelection) {
                 //Setting up winning, losing and drawing messages to avoid repetition
                 let loseMessage = "You Lose!, " + 
                                   computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1) + 
@@ -64,10 +64,10 @@
             }
 
             function game() {
-                for(let i = 0; i < 5; i++) {
+                while(playerScore < 5 && computerScore < 5) {
                     let correctInput = false;
                     let userInput;
-
+                    
                     do {
                         userInput = prompt("Please enter rock, paper or scissor (correct spelling): ").toLowerCase();
                         
@@ -77,16 +77,17 @@
                             correctInput = true;
                         }
                         else {
-                            alert("Incorrect input. Please try again, dumbass");
+                            alert("Incorrect input. Please try again.");
                         }
                     } while(!correctInput);
                     
-                    console.log(getWinner(userInput, getComputerChoice()));
+                    console.log(playRound(userInput, getComputerChoice()));
                 }
             }
 
             game();
-            console.log();
+            console.log("Your score is: " + playerScore + 
+                        "\nThe computer score is: " + computerScore);
         </script>
     </body>
 </html>
