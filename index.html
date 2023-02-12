@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <script>
+            function getComputerChoice() {
+
+            }
+
+            function getWinner(playerSelection, computerSelection) {
+                let loseMessage = "You Lose!, " + playerSelection.charAt(0).toUpperCase() + " beats " + computerSelection.charAt(0).toUpperCase();
+                let winMessage = "You Win!, " + playerSelection.charAt(0).toUpperCase() + " beats " + computerSelection.charAt(0).toUpperCase();
+                let drawMessage = "It is a draw!";  
+
+                if(playerSelection === "rock" && computerSelection === "paper") {
+                    return loseMessage;
+                }
+                else if(playerSelection === "paper" && computerSelection === "scissor") {
+                    return loseMessage;
+                }
+                else if(playerSelection === "scissor" && computerSelection === "rock") {
+                    return loseMessage;
+                }
+                else if(playerSelection === computerSelection) {
+                    return drawMessage;
+                }
+                else {
+                    return winMessage;
+                }
+            }
+        </script>
+    </body>
+</html>
